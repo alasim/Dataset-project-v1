@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "src",
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/api/upload.js",
+    "src/pages/api/test2.ts",
+    "src/pages/file.js",
+    "src/pages/api/data.js",
+    "src/components/home/UploadModel.jsx",
+    "src/components/home/UploadModel.jsx",
+    "src/pages/api/getFile.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
