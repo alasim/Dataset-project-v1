@@ -37,11 +37,11 @@ export const Main = () => {
                 <FilterDropDown />
             </div>
         </div>
-        {search == "" && <div className="grid gap-4 grid-cols-2">
+        {search == "" && <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
             {filtered != "" ? Array.from(list.filter(e => e.tags.includes(filtered))).map(e => <DataCard data={e} />) : Array.from(list).map(e => <DataCard data={e} />)}
         </div>}
         {search != "" &&
-            <div className="grid gap-4 grid-cols-2">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
                 {filtered != "" ? Array.from(list.filter(e => e.tags.includes(filtered) && e.title.toLowerCase().includes(search))).map(e => <DataCard data={e} />) : Array.from(list.filter(e => e.title.toLowerCase().includes(search))).map(e => <DataCard data={e} />)}
             </div>}
         {/* <div className="cursor-pointer" onClick={() => dispatch(increment())}>+</div><span>{count}</span> */}
