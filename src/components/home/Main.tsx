@@ -22,10 +22,10 @@ export const Main = () => {
     }, []);
 
     const { list, tags, filtered } = useSelector((state: RootState) => state.home)
-    console.log('filtered');
-    console.log(filtered);
 
     const dispatch = useDispatch()
+    console.log(list.map(e => e.tags));
+
     return <div className="w-full">
         <div className="flex space-x-6 mb-6 items-center">
             <div className="font-medium">Datasets &nbsp;&nbsp;<span className="text-base-content/40">{list.length}</span></div>

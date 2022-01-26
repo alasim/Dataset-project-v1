@@ -18,8 +18,6 @@ export const UpLoadModel = () => {
         console.log(e.target.files[0]);
         setfile(e.target.files[0]);
     };
-    console.log('tags');
-    console.log(tags);
     const uploadToServer = async (event) => {
         const body = new FormData();
         body.append("file", file);

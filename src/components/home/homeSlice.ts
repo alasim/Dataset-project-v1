@@ -43,13 +43,13 @@ export const homeSlice = createSlice({
             state.list = action.payload
         },
         updateTags: (state, action: PayloadAction<string[]>) => {
-            console.log('action.payload');
-            console.log(action.payload);
-
             state.tags = action.payload
         },
         addNew: (state, action: PayloadAction<IItem>) => {
             state.list.push(action.payload)
+        },
+        addNewTag: (state, action: PayloadAction<string>) => {
+            state.tags.push(action.payload)
         },
         setFilter: (state, action: PayloadAction<string>) => {
             state.filtered = action.payload
@@ -68,6 +68,6 @@ export const homeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setDownloadModelData, updateList, addNew, updateTags, setFilter, clearFilter, sortList } = homeSlice.actions
+export const { setDownloadModelData, updateList, addNew, updateTags, setFilter, clearFilter, sortList, addNewTag } = homeSlice.actions
 
 export default homeSlice.reducer
