@@ -8,17 +8,18 @@ import { RootState } from '../store'
 import React, { FC, useEffect, useState } from 'react'
 import { IItem } from 'interfaces/IItem'
 import axios from 'axios'
+import Link from 'next/link'
 export const DowloadModel: FC<{ data: IItem }> = ({ data }) => {
     const { list, tags, downloadModelData } = useSelector((state: RootState) => state.home)
 
     const downloadFile = (url?: string) => {
         if (url != null) {
             axios.get(url).then((res) => {
-                var data = new Blob([res.data], { type: 'text/csv' });
-                var csvURL = window.URL.createObjectURL(data);
+                /* var data = new Blob([res.data], { type: data.file.type });
+                var csvURL = window.URL.createObjectURL(data); */
                 var tempLink = document.createElement('a');
-                tempLink.href = csvURL;
-                tempLink.setAttribute('download', 'filename.csv');
+                tempLink.href = data.file.url;
+                tempLink.setAttribute('download', data.file.name);
                 tempLink.click();
             }).catch(error => {
 
@@ -35,8 +36,8 @@ export const DowloadModel: FC<{ data: IItem }> = ({ data }) => {
     return <div>
         <input type="checkbox" id="DowloadModel" className="modal-toggle" />
         <div className="modal">
-            <div className="modal-box p-1">
-                <div className="space-y-4 relative pt-4 p-2 border-2 border-base-200 rounded-xl">
+            <div className="modal-box p-4 rounded">
+                <div className="space-y-4 relative pt-4 p-2 border-2 border-base-200 rounded">
                     <label htmlFor='DowloadModel'><AiOutlineClose className='btn btn-xs btn-ghost btn-square absolute right-2 top-2' /></label>
                     <header className="flex items-center px-4 ">
                         <HiDatabase className="mr-1 text-gray-400 group-hover:text-red-500 flex-none" />
@@ -55,11 +56,20 @@ export const DowloadModel: FC<{ data: IItem }> = ({ data }) => {
                         <span className="px-1.5 text-gray-300">•</span>
                         <FiUser className="flex-none w-3 text-gray-400 mr-1" /> {data.user}
                     </div>
+                    <div className='flex px-3 space-x-4 items-center'>
+                        <div>Tags:</div>
+                        <div className='space-x-2'>
+                            {downloadModelData.tags.map(e => <span className='btn btn-xs btn-ghost bg-primary/10'>{e}</span>)}
+                        </div>
+                    </div>
+
                     <div className='flex justify-end'>
-                        <button onClick={() => downloadFile("https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmlzaW9ufGVufDB8fDB8fA%3D%3D&w=1000&q=80")} className="btn btn-sm ml-3 btn-primary">
-                            <BsDownload className="inline-block w-6 h-6 mr-2 stroke-current" />
-                            {downloadModelData.file.type}
-                        </button>
+                        <Link href={downloadModelData.file.url}>
+                            <button onClick={() => downloadFile(downloadModelData.file.url)} className="btn btn-sm ml-3 btn-primary">
+                                <BsDownload className="inline-block w-6 h-6 mr-2 stroke-current" />
+                                {downloadModelData.file.type}
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

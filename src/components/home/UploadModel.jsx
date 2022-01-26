@@ -1,5 +1,7 @@
+import axios from 'axios';
 import clsx from 'clsx'
 import { useState } from 'react'
+import { setDownloadModelData, updateList, addNew } from '../home/homeSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid';
 import { RootState } from '../store'
@@ -7,23 +9,23 @@ export const UpLoadModel = () => {
 
     const [openMenu, setopenMenu] = useState(false)
     const [title, settitle] = useState("");
-
+    const dispatch = useDispatch()
     const [selecetedTags, setselecetedTags] = useState([])
     const { list, tags, downloadModelData } = useSelector((state) => state.home)
     const [file, setfile] = useState(null);
-
     const handleFileChange = (e) => {
         if (e.target.files.length === 0) return false;
         console.log(e.target.files[0]);
         setfile(e.target.files[0]);
-        console.log('file');
-        console.log(file);
     };
-    const handleSubmit = () => {
-        console.log(file);
-
-    }
+    console.log('tags');
+    console.log(tags);
     const uploadToServer = async (event) => {
+        const body = new FormData();
+        body.append("file", file);
+        body.append("token", '2IITpuRYdgtcowglhMOQ69ieEERiKlIY');
+        body.append("folderId", '24b59a9a-99f5-482e-b511-6c007c4aaccf');
+        const response = await axios.post("https://store2.gofile.io/uploadFile", body);
         const data = {
             id: uuidv4(),
             title: title,
@@ -31,32 +33,22 @@ export const UpLoadModel = () => {
             downloads: 0,
             loves: 0,
             file: {
-                id: uuidv4(),
-                name: file.name,
+                id: response.data.data.fileId,
+                name: response.data.data.fileName,
                 type: file.type,
-                extention: '.' + file.name.split('.')[file.name.split('.').length - 1]
+                url: response.data.data.directLink
             },
             date: Date(),
+            tags: selecetedTags
         }
         console.log(data);
-        console.log(data);
-        const body = new FormData();
-        body.append("file", file);
-        body.append("data", JSON.stringify(data));
-        const response = await fetch("/api/file", {
-            method: "POST",
-            body
-        });
-        console.log(response.body);
+        let result = await axios.post("/api/file",
+            data
+        );
+        dispatch(addNew(result.data))
+        console.log('result');
+        console.log(result);
     };
-    /* const uploadToServer = async (event: any) => {
-        const body = new FormData();
-        body.append("file", file);
-        const response = await fetch("/api/upload", {
-            method: "POST",
-            body
-        });
-    }; */
 
     return <div>
         <input type="checkbox" id="UpLoadModel" className="modal-toggle" />

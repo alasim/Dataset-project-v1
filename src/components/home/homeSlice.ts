@@ -4,7 +4,8 @@ import { IItem } from 'interfaces/IItem'
 export interface HomeState {
     downloadModelData: IItem,
     list: IItem[],
-    tags: string[]
+    tags: string[],
+    filtered: string
 }
 
 const initialState: HomeState = {
@@ -18,12 +19,17 @@ const initialState: HomeState = {
             id: "0",
             name: "",
             type: "",
-            extention: ""
+            url: ""
         },
         date: Date(),
+        tags: []
     },
     list: [],
-    tags: []
+    tags: [
+        "Book",
+        "Story"
+    ],
+    filtered: ""
 }
 
 export const homeSlice = createSlice({
@@ -35,11 +41,33 @@ export const homeSlice = createSlice({
         },
         updateList: (state, action: PayloadAction<IItem[]>) => {
             state.list = action.payload
-        }
+        },
+        updateTags: (state, action: PayloadAction<string[]>) => {
+            console.log('action.payload');
+            console.log(action.payload);
+
+            state.tags = action.payload
+        },
+        addNew: (state, action: PayloadAction<IItem>) => {
+            state.list.push(action.payload)
+        },
+        setFilter: (state, action: PayloadAction<string>) => {
+            state.filtered = action.payload
+        },
+        clearFilter: (state) => {
+            state.filtered = ""
+        },
+        sortList: (state, action: PayloadAction<string>) => {
+            if (action.payload != "des") {
+                state.list.sort((a, b) => a.title.localeCompare(b.title))
+            } else {
+                state.list.sort((a, b) => b.title.localeCompare(a.title))
+            }
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setDownloadModelData, updateList } = homeSlice.actions
+export const { setDownloadModelData, updateList, addNew, updateTags, setFilter, clearFilter, sortList } = homeSlice.actions
 
 export default homeSlice.reducer

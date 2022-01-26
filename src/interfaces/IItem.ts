@@ -8,8 +8,9 @@ export interface IItem {
         id: string,
         name: string,
         type: string,
-        extention: string
+        url: string
     }
     date: string,
+    tags: string[]
 
 }

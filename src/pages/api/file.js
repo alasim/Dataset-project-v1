@@ -8,24 +8,19 @@ export const config = {
         bodyParser: false
     }
 };
-/* 
-"id": "0835a524-5eee-45b4-b5cc-487c13e8b3f9",
-            "name": "337ddd0415.png",
-            "type": "image/png",
-            "size": 4667554,
-            "extention": ".png"
-*/
-const post = async (req, res) => {
-    const form = new formidable.IncomingForm();
-    form.parse(req, async function (err, fields, files) {
-        let newData = JSON.parse(fields.data);
 
+const post = async (req, res) => {
+    console.log(req.body);
+    const form = new formidable.IncomingForm();
+    form.parse(req, async function (err, fields) {
+        console.log('fields');
+        console.log(fields);
         console.log(data);
-        data.uploads.push(newData)
+        data.uploads.push(fields)
         console.log(data);
-        var fileName = await saveFile(files.file, newData);
+        // var fileName = await saveFile(files.file, newData);
         saveData()
-        return res.status(201).json(fileName);
+        return res.status(201).json(fields);
     });
 };
 
@@ -43,8 +38,7 @@ const saveFile = async (file, newData) => {
 };
 
 export default async (req, res) => {
-    console.log('read first data');
-    console.log(data);
+
     if (req.method === "POST") {
         await post(req, res)
 

@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
 
     <div className="flex space-x-6">
-      {/* <Tags /> */}
+      <Tags />
       <Main />
     </div>
 
