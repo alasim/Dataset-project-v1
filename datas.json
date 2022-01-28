@@ -1,1 +1,8 @@
-{"uploads":[{"id":"e40df518-ce5f-43a9-9179-3d2b9e92fca7","title":"Hello","user":"Hasan","downloads":3,"loves":0,"file":{"id":"92d395d8-80e1-4702-b7e5-04abb3e56339","name":"asim.jpg","type":"image/jpeg","url":"https://store2.gofile.io/download/92d395d8-80e1-4702-b7e5-04abb3e56339/asim.jpg"},"date":"Tue Jan 25 2022 13:40:52 GMT+0600 (Bangladesh Standard Time)","tags":["Story","Book"]},{"id":"fc660f40-fecc-4f86-9fff-673a353ce553","title":"Hello world","user":"Hasan","downloads":1,"loves":0,"file":{"id":"ed95a16e-6151-4384-83e0-a7dd3c6ca6d2","name":"119706384_1988884574586592_3337806282815198434_n.jpg","type":"image/jpeg","url":"https://store2.gofile.io/download/ed95a16e-6151-4384-83e0-a7dd3c6ca6d2/119706384_1988884574586592_3337806282815198434_n.jpg"},"date":"Tue Jan 25 2022 13:53:31 GMT+0600 (Bangladesh Standard Time)","tags":["Story"]},{"id":"951e199a-bede-41a1-80ff-34df06de533f","title":"csv","user":"Hasan","downloads":6,"loves":0,"file":{"id":"1fd081ef-6d96-4c8b-9b8c-ab1c7384c04d","name":"filename.csv","type":"text/csv","url":"https://store2.gofile.io/download/1fd081ef-6d96-4c8b-9b8c-ab1c7384c04d/filename.csv"},"date":"Tue Jan 25 2022 14:02:50 GMT+0600 (Bangladesh Standard Time)","tags":["Story"]}],"tags":["Book","Story","Novel","Comics","Video","CSV","new book to buy","new story"]}
+{
+    "uploads": [],
+    "tags": [
+        "Book",
+        "Story",
+        "Novel"
+    ]
+}
