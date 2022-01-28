@@ -15,13 +15,19 @@ const Layout = ({ children }: LayoutProps) => {
       {/* <Header /> */}
       <UpLoadModel />
       <DowloadModel data={{
+        id: "",
         title: "News today",
         user: "Hasan",
         downloads: 21,
         loves: 10,
-        fileId: "1",
-        data: "Jan 20, 2022",
-        type: "png"
+        file: {
+          id: "0",
+          name: "",
+          type: "",
+          url: ""
+        },
+        date: Date(),
+        tags: []
       }} />
       <main className="container">{children}</main>
       {/* <Footer /> */}
