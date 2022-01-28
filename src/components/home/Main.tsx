@@ -56,19 +56,19 @@ const FilterDropDown = () => {
     return <div onClick={() => setopen(!open)} style={{ width: "200px" }} className="py-1 flex justify-center cursor-pointer text-base-content/60 relative bg-base-200 border border-base-300 rounded-lg px-4">
         {open && <div onClick={() => setopen(false)} className="fixed inset-0 bg-transparent"></div>}
         <div className="flex items-center space-x-2"><BiSortAlt2 /> <span>{sort}</span></div>
-        {open && <div className="bg-white rounded-lg shadow-lg absolute bottom-0 translate-y-full left-0">
+        {open && <div className="bg-base-100 text-base-content rounded-lg shadow-lg absolute bottom-0 translate-y-full left-0">
             <div onClick={() => {
                 dispatch(sortList("download"))
                 setsort("Most Downloads")
-            }} className="flex py-1 cursor-pointer hover:bg-slate-50 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Most Downloads</span></div>
+            }} className="flex py-1 cursor-pointer hover:bg-base-200 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Most Downloads</span></div>
             <div onClick={() => {
                 dispatch(sortList("acc"))
                 setsort("Alphabetical")
-            }} className="flex py-1 cursor-pointer hover:bg-slate-50 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Alphabetical</span></div>
+            }} className="flex py-1 cursor-pointer hover:bg-base-200 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Alphabetical</span></div>
             <div onClick={() => {
                 dispatch(sortList("des"))
                 setsort("Recently Updated")
-            }} className="flex py-1 cursor-pointer hover:bg-slate-50 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Descending</span></div>
+            }} className="flex py-1 cursor-pointer hover:bg-base-200 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Descending</span></div>
         </div>}
     </div>
 }

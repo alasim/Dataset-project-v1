@@ -65,8 +65,8 @@ export const UpLoadModel = () => {
     text-base
     font-normal
     text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
+    bg-base-100 bg-clip-padding
+    border border-solid border-base-300
     rounded
     transition
     ease-in-out
@@ -84,8 +84,8 @@ export const UpLoadModel = () => {
     text-base
     font-normal
     text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
+    bg-base-100 bg-clip-padding
+    border border-solid border-base-300
     rounded
     transition
     ease-in-out
