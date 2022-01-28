@@ -10,7 +10,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 export const Main = () => {
     const [search, setsearch] = useState('');
-
     useEffect(() => {
         axios.get('/api/data').then(
             res => {
@@ -59,7 +58,7 @@ const FilterDropDown = () => {
         <div className="flex items-center space-x-2"><BiSortAlt2 /> <span>{sort}</span></div>
         {open && <div className="bg-white rounded-lg shadow-lg absolute bottom-0 translate-y-full left-0">
             <div onClick={() => {
-                dispatch(sortList("acc"))
+                dispatch(sortList("download"))
                 setsort("Most Downloads")
             }} className="flex py-1 cursor-pointer hover:bg-slate-50 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Most Downloads</span></div>
             <div onClick={() => {
@@ -69,7 +68,7 @@ const FilterDropDown = () => {
             <div onClick={() => {
                 dispatch(sortList("des"))
                 setsort("Recently Updated")
-            }} className="flex py-1 cursor-pointer hover:bg-slate-50 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Recently Updated</span></div>
+            }} className="flex py-1 cursor-pointer hover:bg-slate-50 px-4  items-center space-x-2"><BiSortAlt2 /> <span>Descending</span></div>
         </div>}
     </div>
 }

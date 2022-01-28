@@ -22,7 +22,7 @@ export const DataCard: FC<{ data: IItem }> = ({ data }) => {
                     <time dateTime="2021-11-22T16:40:18" title="Mon, 22 Nov 2021 16:40:18 GMT">{getDate(data.date)}</time>
                 </span>
                 <span className="px-1.5 text-gray-300">•</span>
-                <FiDownload className="flex-none w-3 text-gray-400 mr-0.5" /> {data.downloads}k
+                <FiDownload className="flex-none w-3 text-gray-400 mr-0.5" /> {data.downloads}
                 <span className="px-1.5 text-gray-300">•</span>
                 <FiHeart className="flex-none w-3 text-gray-400 mr-1" /> {data.loves}
                 <span className="px-1.5 text-gray-300">•</span>
@@ -34,7 +34,7 @@ export const DataCard: FC<{ data: IItem }> = ({ data }) => {
 }
 // <label htmlFor="UpLoadModel" className="btn btn-primary modal-button">open modal</label>
 
-function getDate(data: any) {
+export function getDate(data: any) {
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const dateObj = new Date(data);
